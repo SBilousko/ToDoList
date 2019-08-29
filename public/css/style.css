@@ -1,0 +1,253 @@
+body {
+  font-family: 'PT Sans', sans-serif;
+  color: #444;
+  background: #fafafa;
+}
+
+.container {
+  width: 100%;
+  min-width: 250px;
+}
+
+/* header */
+
+.header {
+  background: #db4c3f;
+}
+
+.navigation {
+  display: flex;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.nav-item {
+  width: 35%;
+}
+
+.nav-link {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  line-height: 70px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255, 0.15);
+}
+
+.nav-link[focus] {
+  background: rgba(0,0,0, 0.15);
+}
+
+/* main area */
+
+.main {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.add-task {
+  margin: 20px 0;
+  border: 1px solid #9b9b9b;
+  border-radius: 3px;
+}
+
+a.add {
+  display: inline-block;
+  width: 100%;
+  line-height: 45px;
+  padding: 0 15px;
+  color: #bc5149;
+  text-decoration: none;
+}
+
+a.add:hover {
+  color: #f46258;
+}
+
+.fa-plus-circle {
+  margin-right: 5px;
+}
+
+.new-task {
+  display: none;
+}
+
+.input-area {
+  margin: 0 15px;
+}
+
+.task-name, .due-date {
+  padding: 5px;
+  height: 25px;
+  border: 1px solid #9b9b9b;
+  border-radius: 4px;
+}
+
+.task-name {
+  width: 82%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.due-date {
+  width: 13%;
+  margin-left: -5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  cursor: pointer;
+}
+
+.submit-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: #db4c3f;
+  color: #fff;
+  padding: 7px 25px;
+  margin: 10px 10px 10px 15px;
+  border-radius: 4px;
+}
+
+.submit-btn:hover {
+  background: #f46258;
+}
+
+.cancel {
+  text-decoration: none;
+  color: #9b9b9b;
+}
+
+.cancel:hover {
+  text-decoration: underline;
+}
+
+.note-container {
+  margin: 10px 0;
+  padding: 20px;
+  border: 1px solid #9b9b9b;
+  border-radius: 3px;
+  position: relative;
+}
+
+.move-icon {
+  position: absolute;
+  height: 18px;
+  margin-top: -9px;
+  top: 50%;
+  left: 7px;
+  color: #d7d7d7;
+  transition: .3s;
+}
+
+.move-icon:hover {
+  color: #f46258;
+  cursor: move;
+}
+
+.list-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  margin-left: 5px;
+}
+
+.description .checkbox {
+  display: none;
+}
+
+.description .check-label {
+  font-size: 18px;
+}
+
+.description .check-label::before {
+  content: " ";
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 8px;
+  background: #fff;
+}
+
+.description .checkbox:checked + .check-label {
+  color: #9B9B9B;
+  text-decoration: line-through;
+}
+
+.description .checkbox:checked + .check-label::before {
+  content: "✔ \fe01";
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border: 1px solid #bc5149;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 8px;
+  background: #bc5149;
+  color: #fff;
+}
+
+.finished-task {
+  background: #ebebeb;
+}
+
+.highlighted-task {
+  border-color: #bc5149;
+  background: #ffe5e5;
+}
+
+.description .add-info {
+  margin-left: 26px;
+  margin-top: 10px;
+  color: #9b9b9b;
+  font-size: 14px;
+}
+
+.description .add-info::before {
+  content: "Deadline";
+  display: inline-block;
+  color: #bc5149;
+  margin-right: 5px;
+}
+
+.description .file {
+  margin-left: 20px;
+}
+
+.description .file .fa-paperclip {
+  color: #bc5149;
+  margin-right: 8px;
+}
+
+.features .star {
+  display: none;
+}
+
+.features .fa-star {
+  margin-right: 8px;
+  color: #d7d7d7;
+}
+
+.features .fas.fa-star {
+  color: #f5a623;
+}
+
+.features .fa-star:hover {
+  cursor: pointer;
+  color: #f5a623;
+}
+
+.features .edit {
+  color: #9b9b9b;
+}
+
+.features .edit:hover {
+  color: #f46258;
+}
