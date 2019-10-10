@@ -1,6 +1,6 @@
 @extends("layouts.app")
 
-@section("title", "Current Tasks")
+@section("title", "All Tasks")
 
 @section("add-task")
 
@@ -25,14 +25,20 @@
 
 @section("content")
 
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <div class="tasks">
         @foreach ($tasks as $task)
-            <div class="note-container @if ($task->favourite) highlighted-task @endif">
+            <div class="note-container @if ($task->favourite) highlighted-task @endif @if ($task->done) finished-task @endif">
                 <i class="fas fa-ellipsis-v move-icon"></i>
                 <div class="list-content">
                     <div class="description">
                         <div class="check-list">
-                            <input type="checkbox" id="{{ $task->id }}" class="checkbox">
+                            <input type="checkbox" id="{{ $task->id }}" class="checkbox" @if ($task->done) checked @endif>
                             <label class="check-label" for="{{ $task->id }}">{{ $task->body }}</label>
                         </div>
                         <p class="add-info">
@@ -49,5 +55,6 @@
             </div>
         @endforeach
     </div>
+
 
 @endsection

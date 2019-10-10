@@ -1,4 +1,4 @@
-@extends("layout")
+@extends("layouts.app")
 
 @section("title", "Completed Tasks")
 
@@ -26,26 +26,28 @@
 @section("content")
 
     <div class="tasks">
-        <div class="note-container finished-task">
-            <i class="fas fa-ellipsis-v move-icon"></i>
-            <div class="list-content">
-                <div class="description">
-                    <div class="check-list">
-                        <input type="checkbox" id="list01" class="checkbox" checked>
-                        <label class="check-label" for="list01">Complete ToDo List</label>
+        @foreach ($tasks as $task)
+            <div class="note-container @if ($task->favourite) highlighted-task @endif @if ($task->done) finished-task @endif">
+                <i class="fas fa-ellipsis-v move-icon"></i>
+                <div class="list-content">
+                    <div class="description">
+                        <div class="check-list">
+                            <input type="checkbox" id="{{ $task->id }}" class="checkbox" @if ($task->done) checked @endif>
+                            <label class="check-label" for="{{ $task->id }}">{{ $task->body }}</label>
+                        </div>
+                        <p class="add-info">
+                            <span class="deadline">{{ $task->deadline }}</span>
+                            {{-- <span class="file"><i class="fas fa-paperclip"></i>3</span> --}}
+                        </p>
                     </div>
-                    <p class="add-info">
-                        <span class="deadline">06.08.2019</span>
-                        <span class="file"><i class="fas fa-paperclip"></i>3</span>
-                    </p>
-                </div>
-                <div class="features">
-                    <input class="star" type="checkbox" id="star01">
-                    <label class="star-label" for="star01"><i class="far fa-star"></i></label>
-                    <a class="edit" href="#" title="edit"><i class="fas fa-pencil-alt"></i></a>
+                    <div class="features">
+                        <input class="star" type="checkbox" id="star01">
+                        <label class="star-label" for="star01"><i class="far fa-star @if ($task->favourite) fas @endif"></i></label>
+                        <a class="edit" href="#" title="edit"><i class="fas fa-pencil-alt"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
 
 @endsection
