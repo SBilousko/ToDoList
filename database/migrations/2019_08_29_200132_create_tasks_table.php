@@ -15,7 +15,7 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('body');
+            $table->text('title');
             $table->date('deadline');
             $table->boolean('done')->default('0');
             $table->boolean('favourite')->default('0');

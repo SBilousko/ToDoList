@@ -27,10 +27,14 @@
 //     return view('completed', compact('tasks'));
 // });
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', 'TasksController@index');
+Route::get('/tasks', 'TasksController@index');
 Route::get('/current', 'TasksController@current');
 Route::get('/completed', 'TasksController@completed');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
