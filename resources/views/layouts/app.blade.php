@@ -26,7 +26,7 @@
             <header class="header">
                 <ul class="navigation">
                     <li class="nav-item">
-                        <a class="nav-link" href="/home" title="All Tasks" focus>All Tasks</a>
+                        <a class="nav-link" href="/tasks" title="All Tasks" focus>All Tasks</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/current" title="Current">Current</a>
@@ -77,5 +77,43 @@
             </main>
         </div>
         <script src="/js/script.js"></script>
+        <script>
+
+            $(function() {
+
+                $('#submit-btn').on('click', function() {
+                    var task = $('#task-name').val();
+                    var deadline = $('#datepicker').val();
+
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+
+                    $.ajax({
+                        url: '/tasks',
+                        type: "POST",
+                        data: { title:task, deadline:deadline },
+                        // headers: {
+                        //     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                        // },
+                        success: function (data) {
+                            alert(data.success);
+                            // $('#addArticle').modal('hide');
+                            // $('#articles-wrap').removeClass('hidden').addClass('show');
+                            // $('.alert').removeClass('show').addClass('hidden');
+                            // var str = '<tr><td>'+data['id']+
+                            // '</td><td><a href="/article/'+data['id']+'">'+data['title']+'</a>'+
+                            // '</td><td><a href="/article/'+data['id']+'" class="delete" data-delete="'+data['id']+'">Удалить</a></td></tr>';
+                            // $('.table > tbody:last').append(str);
+                        },
+                        error: function (msg) {
+                            alert('Error');
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

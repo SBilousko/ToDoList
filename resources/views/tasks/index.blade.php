@@ -10,14 +10,22 @@
             <span>Add Task</span>
         </a>
         <div class="new-task">
-            <div class="input-area">
-                <input type="text" name="task-name" id="task-name" class="task-name" placeholder="Add your task">
-                <input type="text" name="date" id="datepicker" class="due-date" placeholder="Due date" readonly="true">
-            </div>
-            <div class="submit-area">
-                <a href="#" class="submit-btn">Save task</a>
-                <a href="#" class="cancel">Cancel</a>
-            </div>
+            {{-- <form action="{{ url('task') }}#" method="POST"> --}}
+                {{-- {{ csrf_field() }} --}}
+                <div class="input-area">
+                    <input type="text" name="name" id="task-name" class="task-name" placeholder="Add your task">
+                    <input type="text" name="date" id="datepicker" class="due-date" placeholder="Due date" readonly="true">
+                </div>
+                <div class="submit-area">
+                    {{-- <button type="submit" id="submit-btn"> --}}
+                        <a href="#" id="submit-btn" class="submit-btn">Save task</a>
+                        {{-- Save task --}}
+                    {{-- </button> --}}
+                    {{-- <button> --}}
+                        <a href="#" class="cancel">Cancel</a>
+                    {{-- </button> --}}
+                </div>
+            {{-- </form> --}}
         </div>
     </div>
 
@@ -39,7 +47,7 @@
                     <div class="description">
                         <div class="check-list">
                             <input type="checkbox" id="{{ $task->id }}" class="checkbox" @if ($task->done) checked @endif>
-                            <label class="check-label" for="{{ $task->id }}">{{ $task->body }}</label>
+                            <label class="check-label" for="{{ $task->id }}">{{ $task->title }}</label>
                         </div>
                         <p class="add-info">
                             <span class="deadline">{{ $task->deadline }}</span>

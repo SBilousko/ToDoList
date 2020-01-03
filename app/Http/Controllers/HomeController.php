@@ -25,6 +25,6 @@ class HomeController extends Controller
     public function index()
     {
         $tasks = App\Task::all();
-        return view('home', compact('tasks'));
+        return view('tasks.index', compact('tasks'));
     }
 }

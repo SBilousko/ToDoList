@@ -32,9 +32,10 @@ Route::get('/', function () {
 });
 
 Route::get('/tasks', 'TasksController@index');
+Route::post('/task', 'TasksController@store');
 Route::get('/current', 'TasksController@current');
 Route::get('/completed', 'TasksController@completed');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

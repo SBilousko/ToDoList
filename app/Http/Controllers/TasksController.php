@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
+use App\Task;
 
 class TasksController extends Controller
 {
@@ -17,6 +18,16 @@ class TasksController extends Controller
     public function index(Request $request) {
         $tasks = $request->user()->tasks()->get();
         return view('tasks.index', compact('tasks'));
+    }
+
+    public function store(Request $request) {
+        $request->user()->tasks()->create([
+            'title' => $request->title,
+            'deadline' => $request->deadline,
+        ]);
+        return redirect('/tasks');
+        // return response()->json(['success'=>$input['title'] . ' | ' . $input['deadline']]);
+        // return $request;
     }
 
     public function current(Request $request) {
